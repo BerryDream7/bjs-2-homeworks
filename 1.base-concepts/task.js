@@ -42,3 +42,4 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	totalAmount = +(monthFee * loanTerm).toFixed(2);
 	console.log(totalAmount);
 	return totalAmount;
+}
