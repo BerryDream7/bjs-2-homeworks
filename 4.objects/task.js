@@ -2,12 +2,16 @@ function Student(name, gender, age) {
   this.name = name;
   this.gender = gender;
   this.age = age;
-  this.marks = [];
+  this.marks = []; 
+}
 
+Student.prototype.setSubject = function (subjectName) {
   this.setSubject = function(subjectName) {
     this.subject = subjectName;
   };
+}
 
+Student.prototype.addMarks = function (...marks) {
   this.addMarks = function(...marksToAdd) {
     if (!this.marks) {
         console.log("Ошибка: Студент был отчислен.");
@@ -15,7 +19,9 @@ function Student(name, gender, age) {
     }
     this.marks.push(...marksToAdd);
   };
+}
 
+Student.prototype.getAverage = function () {
   this.getAverage = function() {
     if (!this.marks || !this.marks.length) {
         return 0;
@@ -23,7 +29,9 @@ function Student(name, gender, age) {
     const sum = this.marks.reduce((acc, curr) => acc + curr);
     return sum / this.marks.length;
   };
+}
 
+Student.prototype.exclude = function (reason) {
   this.exclude = function(reason) {
     delete this.subject;
     delete this.marks;
